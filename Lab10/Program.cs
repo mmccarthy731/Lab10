@@ -26,7 +26,7 @@ namespace Lab10
             vehicles.Add(new UsedCars("Ford", "Taurus", 2004, 2045.00, 120302));
 
             bool keepShopping = true;
-            while (keepShopping)
+            while (keepShopping && vehicles.Count > 0)
             {
                 int index = Validator.ValidateInput(keys, vehicles);
                 if(index == -1) // -1 is return value if user inputs "END", exits the loop
@@ -41,12 +41,6 @@ namespace Lab10
                 else
                 {
                     BuyNewCar(keys, vehicles, cart, index);
-                }
-
-                if(vehicles.Count == 0) // Code for when there are no cars left in dealer inventory
-                {
-                    Console.WriteLine("You have purchased our entire inventory! proceed to checkout.\n");
-                    keepShopping = false;
                 }
             }
 
